@@ -14,5 +14,10 @@ pipeline {
                 sh 'sudo docker run -d --name testing -p 8585:80 nginx'
             }
         }
+        stage('Deploy') {
+            steps {
+                sh 'sudo docker start testing'
+            }
+        }
     }
 } 
