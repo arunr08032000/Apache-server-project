@@ -6,17 +6,12 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'sudo docker build -t nginx:latest .'
+                sh 'sudo docker build -t httpd:latest .'
             }
         }
         stage('Run') {
             steps {
-                sh 'sudo docker run -d --name testing -p 8585:80 nginx'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                sh 'sudo docker start testing'
+                sh 'sudo docker run -d --name Apache -p 8585:80 httpd'
             }
         }
     }
