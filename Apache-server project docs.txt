@@ -1,0 +1,26 @@
+Step 1: Generate dockerhub token
+
+Docker Dashboard > profile icon > account settings > personal access token > enter name > Generate > copy access token >
+
+
+Step 2: Setup dockerhub token in jenkins
+
+Jenkins Dashboard > manage jenkins > credentials > system > global credentials > add credentials > username(docker-dockerhub) > paste access token > Ok
+
+
+Step 3: Create, review and run job
+
+GitHub > create repo (Apache-server-project) > create Dockerfile and Jenkinsfile
+
+Create job/New item > enter an item name > select pipeline > general >  pipeline > definition > select (Pipeline script from SCM) > SCM > select (Git) > 
+repositories > paste repository https URL (public) > branches to build > branch Specifier (blank for 'any') (*/main) > script Path (Jenkinsfile) > apply > save 
+
+Jenkins Dashboard > select item (Apache-Server-Project) > build now > console output
+
+
+Step 4: Verifiy the project is running
+
+docker ps
+docker inspect <conatiner name>
+Access the Apache browser:
+http://<container-ip>:<ports-no>
