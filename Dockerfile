@@ -1,2 +1,2 @@
-FROM nginx:latest
-COPY index.html /usr/share/nginx/html/index.html
+FROM httpd:latest
+COPY index.html /usr/local/apache2/htdocs/index.html
